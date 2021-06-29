@@ -1,12 +1,11 @@
 import sys
-
 from PyQt5.QtWidgets import QApplication
 
-import home.views.vistahome
+from home.views.vistahome import vistahome
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    vista_home = home.views.vistahome.VistaHome()
+    vista_home = vistahome()
     vista_home.show()
     sys.exit(app.exec())
 
