@@ -25,4 +25,3 @@ class ControlloreCliente():
 
     def aggiungi_nuovo_abbonamento_cliente(self, abbonamento):
         self.model.add_abbonamento(abbonamento)
-

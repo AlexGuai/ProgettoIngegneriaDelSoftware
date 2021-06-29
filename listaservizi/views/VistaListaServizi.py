@@ -1,14 +1,12 @@
-
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushButton
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton
 
 from listaservizi.controller.ControlloreListaServizio import ControlloreListaServizi
-from servizio.views.VistaServizio import VistaServizio
 
 
-class Vistaservizio(QWidget):
+class VistaListaServizi(QWidget):
     def __init__(self, parent=None):
-        super(VistaServizio, self).__init__(parent)
+        super(VistaListaServizi, self).__init__(parent)
 
         self.controller = ControlloreListaServizi()
 
@@ -28,7 +26,6 @@ class Vistaservizio(QWidget):
 
         buttons_layout = QVBoxLayout()
         open_button = QPushButton("Apri")
-        open_button.clicked.connect(self.show_selected_info)
         buttons_layout.addWidget(open_button)
         buttons_layout.addStretch()
         h_layout.addLayout(buttons_layout)
@@ -40,9 +37,3 @@ class Vistaservizio(QWidget):
     def closeEvent(self, event):
         self.controller.save_data()
         event.accept()
-
-    def show_selected_info(self):
-        selected = self.list_view.selectedIndexes()[0].row()
-        servizio_selezionato = self.controller.get_servizio_by_index(selected)
-        self.vista_servizio = VistaServizio(servizio_selezionato)
-        self.vista_servizio.show()

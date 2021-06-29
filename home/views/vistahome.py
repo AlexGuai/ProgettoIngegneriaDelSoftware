@@ -1,21 +1,17 @@
 from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy
-from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy
+from listaservizi.views.VistaListaServizi import VistaListaServizi
 
-import listaclienti.view.VistaListaCliente
-from listadipendenti.view.VistaListaDipendenti import VistaListaDipendenti
-from listaprenotazioni.view.VistaListaPrenotazioni import VistaListaPrenotazioni
-from listaservizi.view.VistaListaServizi import VistaListaServizi
 
-class vistahome (QWidget):
+class VistaHome(QWidget):
 
     def __init__(self, parent=None):
-        super(vistahome, self).__init__(parent)
+        super(VistaHome, self).__init__(parent)
         grid_layout = QGridLayout()
 
-        grid_layout.addWidget(self.get_generic_button("lista Servizi", self.go_lista_servizi), 0, 0)
-        grid_layout.addWidget(self.get_generic_button("lista Clienti", self.go_lista_clienti), 0, 1)
-        grid_layout.addWidget(self.get_generic_button("lista Dipendenti", self.go_lista_dipendenti), 1, 0)
-        grid_layout.addWidget(self.get_generic_button("lista Prenotazioni", self.go_lista_prenotazioni), 1, 1)
+        grid_layout.addWidget(self.get_generic_button("Lista Servizi", self.go_lista_servizi), 0, 0)
+        grid_layout.addWidget(self.get_generic_button("Lista Clienti", self.go_lista_clienti), 0, 1)
+        grid_layout.addWidget(self.get_generic_button("Lista Dipendenti", self.go_lista_dipendenti), 1, 0)
+        grid_layout.addWidget(self.get_generic_button("Lista Prenotazioni", self.go_lista_prenotazioni), 1, 1)
 
         self.setLayout(grid_layout)
         self.resize(400, 300)
@@ -41,7 +37,3 @@ class vistahome (QWidget):
 
     def go_lista_prenotazioni(self):
         pass
-
-
-    def vistahome():
-    return None
