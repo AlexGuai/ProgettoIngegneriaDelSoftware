@@ -1,0 +1,32 @@
+[
+  {
+    "id": "corsia_1",
+    "nome": "Prima Corsia",
+    "tipo": "Corsia",
+    "posizione": "1"
+  },
+  {
+    "id": "corsia_2",
+    "nome": "Seconda Corsia",
+    "tipo": "Corsia",
+    "posizione": "2"
+  },
+  {
+    "id": "corsia_3",
+    "nome": "Terza Corsia",
+    "tipo": "Corsia",
+    "posizione": "3"
+  },
+  {
+    "id": "corsia_4",
+    "nome": "Quarta Corsia",
+    "tipo": "Corsia",
+    "posizione": "4"
+  },
+  {
+    "id": "corsia_5",
+    "nome": "Quinta Corsia",
+    "tipo": "Corsia",
+    "posizione": "5"
+  }
+]
