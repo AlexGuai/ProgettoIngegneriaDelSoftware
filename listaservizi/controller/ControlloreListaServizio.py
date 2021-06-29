@@ -1,8 +1,6 @@
-import json
 import pickle
-
-from listaservizi.model.ListaServizi import ListaServizi
-
+import os.path
+import json
 
 class ControlloreListaServizi():
 

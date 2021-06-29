@@ -1,13 +1,14 @@
+
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushButton
 
 from listaservizi.controller.ControlloreListaServizio import ControlloreListaServizi
 from servizio.views.VistaServizio import VistaServizio
 
 
-class VistaListaServizi(QWidget):
+class Vistaservizio(QWidget):
     def __init__(self, parent=None):
-        super(VistaListaServizi, self).__init__(parent)
+        super(VistaServizio, self).__init__(parent)
 
         self.controller = ControlloreListaServizi()
 

@@ -1,3 +1,4 @@
+
 class Cliente():
     def __init__(self, id, nome, cognome, datadinascita, email, telefono):
         super(Cliente, self).__init__()
