@@ -17,7 +17,7 @@ class VistaServizio(QWidget):
         label_nome.setFont(font_nome)
         v_layout.addWidget(label_nome)
 
-        label_tipo = QLabel("Tipo {}".format(self.controller.get_tipo_servizio()))
+        label_tipo = QLabel("Tipo: {}".format(self.controller.get_tipo_servizio()))
         font_tipo = label_tipo.font()
         font_tipo.setPointSize(17)
         label_tipo.setFont(font_tipo)

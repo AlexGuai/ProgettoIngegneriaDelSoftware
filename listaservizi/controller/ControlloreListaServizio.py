@@ -11,7 +11,7 @@ class ControlloreListaServizi():
         return self.model.get_lista_servizi()
 
     def get_servizio_by_index(self, index):
-        return self.model.servizio_by_index(index)
+        return self.model.get_servizio_by_index(index)
 
     def save_data(self):
         self.model.save_data()
