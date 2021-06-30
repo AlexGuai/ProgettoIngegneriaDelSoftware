@@ -9,8 +9,10 @@ class VistaListaClienti(QWidget):
     def __init__(self, parent=None):
         super(VistaListaClienti, self).__init__(parent)
 
-        h_layout = QHBoxLayout()
         self.controller = ControlloreListaClienti()
+
+        h_layout = QHBoxLayout()
+
         self.list_view = QListView()
         self.update_ui()
         h_layout.addWidget(self.list_view)
@@ -19,6 +21,7 @@ class VistaListaClienti(QWidget):
         open_button = QPushButton("Apri")
         open_button.clicked.connect(self.show_selected_info)
         buttons_layout.addWidget(open_button)
+
         new_button = QPushButton("Nuovo")
         new_button.clicked.connect(self.show_new_client)
         buttons_layout.addWidget(new_button)

@@ -10,21 +10,21 @@ class VistaInserisciCliente(QWidget):
         self.callback = callback
 
         v_layout = QVBoxLayout()
-        v_layout.addWidget(QLabel("Nome"))
+        v_layout.addWidget(QLabel("id"))
+        self.text_id = QLineEdit(self)
+        v_layout.addWidget(self.text_id)
+
+        v_layout.addWidget(QLabel("nome"))
         self.text_nome = QLineEdit(self)
         v_layout.addWidget(self.text_nome)
 
-        v_layout.addWidget(QLabel("Cognome"))
+        v_layout.addWidget(QLabel("cognome"))
         self.text_cognome = QLineEdit(self)
         v_layout.addWidget(self.text_cognome)
 
-        v_layout.addWidget(QLabel("Data Di Nascita"))
+        v_layout.addWidget(QLabel("datdinascita"))
         self.text_datadinascita = QLineEdit(self)
         v_layout.addWidget(self.text_datadinascita)
-
-        v_layout.addWidget(QLabel("Indirizzo"))
-        self.text_indirizzo = QLineEdit(self)
-        v_layout.addWidget(self.text_indirizzo)
 
         v_layout.addWidget(QLabel("Email"))
         self.text_email = QLineEdit(self)
@@ -33,6 +33,8 @@ class VistaInserisciCliente(QWidget):
         v_layout.addWidget(QLabel("Telefono"))
         self.text_telefono = QLineEdit(self)
         v_layout.addWidget(self.text_telefono)
+
+
 
 
 
@@ -46,15 +48,15 @@ class VistaInserisciCliente(QWidget):
         self.setWindowTitle('Nuovo Cliente')
 
     def add_cliente(self):
+        id = self.text_id.text()
         nome = self.text_nome.text()
         cognome = self.text_cognome.text()
         datadinascita = self.text_datadinascita.text()
-        indirizzo = self.text_indirizzo.text()
         email = self.text_email.text()
         telefono = self.text_telefono.text()
-        if(nome == "" or cognome == "" or datadinascita == "" or indirizzo == "" or email == "" or telefono == "" ):
+        if(id=="" or nome == "" or cognome == "" or datadinascita == ""  or email == "" or telefono == "" ):
             QMessageBox.critical(self, 'Errore', "Per favore, inserisci tutte le informazioni richieste", QMessageBox.Ok, QMessageBox.Ok)
         else:
-            self.controller.aggiungi_cliente(Cliente((nome+cognome).lower(), nome, cognome, datadinascita, indirizzo, email, telefono, ))
+            self.controller.aggiungi_cliente(Cliente((nome+cognome).lower(), id, nome, cognome, datadinascita, email, telefono, ))
             self.callback()
             self.close()
