@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLineEdit, QLabel, QPushButton, QSpacerItem, QSizePolicy, QMessageBox
 
-
+from cliente.model.Cliente import Cliente
 
 
 class VistaInserisciCliente(QWidget):
@@ -18,7 +18,9 @@ class VistaInserisciCliente(QWidget):
         self.text_cognome = QLineEdit(self)
         v_layout.addWidget(self.text_cognome)
 
-
+        v_layout.addWidget(QLabel("Data Di Nascita"))
+        self.text_datadinascita = QLineEdit(self)
+        v_layout.addWidget(self.text_datadinascita)
 
         v_layout.addWidget(QLabel("Indirizzo"))
         self.text_indirizzo = QLineEdit(self)
@@ -46,14 +48,13 @@ class VistaInserisciCliente(QWidget):
     def add_cliente(self):
         nome = self.text_nome.text()
         cognome = self.text_cognome.text()
-        cf = self.text_cf.text()
+        datadinascita = self.text_datadinascita.text()
         indirizzo = self.text_indirizzo.text()
         email = self.text_email.text()
         telefono = self.text_telefono.text()
-        eta = self.text_eta.text()
-        if(nome == "" or cognome == ""  or indirizzo == "" or email == "" or telefono == "" ):
+        if(nome == "" or cognome == "" or datadinascita == "" or indirizzo == "" or email == "" or telefono == "" ):
             QMessageBox.critical(self, 'Errore', "Per favore, inserisci tutte le informazioni richieste", QMessageBox.Ok, QMessageBox.Ok)
         else:
-            self.controller.aggiungi_cliente(Cliente((nome+cognome).lower(), nome, cognome, cf, indirizzo, email, telefono, ))
+            self.controller.aggiungi_cliente(Cliente((nome+cognome).lower(), nome, cognome, datadinascita, indirizzo, email, telefono, ))
             self.callback()
             self.close()

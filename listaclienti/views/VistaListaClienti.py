@@ -1,9 +1,8 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushButton
 
-from cliente.view.VistaListaCliente import Vista
 from listaclienti.controller.ControllerListaclienti import ControlloreListaClienti
-from listaclienti.view.VistaInserisciCliente import VistaInserisciCliente
+from listaclienti.views.VistaInserisciClienti import VistaInserisciCliente
 
 
 class VistaListaClienti(QWidget):
