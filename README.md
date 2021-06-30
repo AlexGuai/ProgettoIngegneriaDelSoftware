@@ -1,7 +1,7 @@
 # ProgettoIngegneriaDelSoftware2021
 
-cosa funziona:
-  vista home:
+## cosa funziona:
+  ###vista home:
     lista servizi:
       visualizza servizio
     lista clienti:
