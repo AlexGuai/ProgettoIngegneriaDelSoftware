@@ -21,7 +21,6 @@ class VistaCliente(QWidget):
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
-        v_layout.addWidget(self.get_label_info("id", self.controller.get_id_cliente()))
         v_layout.addWidget(self.get_label_info("nome", self.controller.get_nome_cliente()))
         v_layout.addWidget(self.get_label_info("cognome", self.controller.get_cognome_cliente()))
         v_layout.addWidget(self.get_label_info("datadinascita", self.controller.get_datadinascita_cliente()))

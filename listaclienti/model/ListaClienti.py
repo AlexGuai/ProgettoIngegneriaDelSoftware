@@ -6,9 +6,9 @@ class ListaClienti():
     def aggiungi_cliente(self, cliente):
         self.lista_clienti.append(cliente)
 
-    def rimuovi_cliente_by_id(self, id):
+    def rimuovi_cliente(self, nome):
         for cliente in self.lista_clienti:
-            if cliente.id == id:
+            if cliente.nome == nome:
                 self.lista_clienti.remove(cliente)
                 return True
         return False

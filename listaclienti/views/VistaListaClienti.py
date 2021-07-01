@@ -35,7 +35,7 @@ class VistaListaClienti(QWidget):
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
         cliente_selezionato = self.controller.get_cliente_by_index(selected)
-        self.vista_cliente = VistaCliente(cliente_selezionato, self.controller.elimina_cliente_by_id, self.update_ui)
+        self.vista_cliente = VistaCliente(cliente_selezionato, self.controller.rimuovi_cliente, self.update_ui)
         self.vista_cliente.show()
 
     def show_new_client(self):
