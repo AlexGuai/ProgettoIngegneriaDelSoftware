@@ -1,13 +1,14 @@
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QSizePolicy, QSpacerItem
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QSizePolicy, QSpacerItem, QPushButton
 
+from abbonamento.views.VistaAbbonamento import VistaAbbonamento
 from cliente.controllore.ControlloreCliente import ControlloreCliente
 
 
 class VistaCliente(QWidget):
-    def __init__(self, cliente, parent=None):
+    def __init__(self, cliente, rimuovi_cliente, elimina_callback, parent=None):
         super(VistaCliente, self).__init__()
         self.controller = ControlloreCliente(cliente)
-        self.elimina_cliente = elimina_cliente
+        self.rimuovi_cliente = rimuovi_cliente
         self.elimina_callback = elimina_callback
 
         h_layout = QHBoxLayout()
@@ -24,8 +25,8 @@ class VistaCliente(QWidget):
         v_layout.addWidget(self.get_label_info("nome", self.controller.get_nome_cliente()))
         v_layout.addWidget(self.get_label_info("cognome", self.controller.get_cognome_cliente()))
         v_layout.addWidget(self.get_label_info("datadinascita", self.controller.get_datadinascita_cliente()))
-        v_layout.addWidget(sel.get_label_info("email",self.controller.get_email_cliente()))
-        v_layout.addWidget(self.get_label_info("telefono",self.controller.get_telfono_cliente()))
+        v_layout.addWidget(self.get_label_info("email", self.controller.get_email_cliente()))
+        v_layout.addWidget(self.get_label_info("telefono", self.controller.get_telfono_cliente()))
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
@@ -55,6 +56,6 @@ class VistaCliente(QWidget):
         self.vista_abbonamento.show()
 
     def elimina_cliente_click(self):
-        self.elimina_cliente(self.controller.get_id_cliente())
+        self.rimuovi_cliente(self.controller.get_nome_cliente())
         self.elimina_callback()
         self.close()

@@ -7,6 +7,7 @@ from listaclienti.model.ListaClienti import ListaClienti
 class ControlloreListaClienti():
     def __init__(self):
         super(ControlloreListaClienti, self).__init__()
+        self.elimina_callback = None
         self.model = ListaClienti()
         if os.path.isfile('listaclienti/data/lista_clienti_salvata.pickle'):
             print("esiste")
@@ -25,8 +26,8 @@ class ControlloreListaClienti():
     def get_cliente_by_index(self, index):
         return self.model.get_cliente_by_index(index)
 
-    def elimina_cliente_by_id(self, id):
-        self.model.rimuovi_cliente_by_id(id)
+    def rimuovi_cliente(self, nome):
+        self.model.rimuovi_cliente(nome)
         with open('listaclienti/data/lista_clienti_salvata.pickle', 'wb') as handle:
             pickle.dump(self.model, handle, pickle.HIGHEST_PROTOCOL)
 
