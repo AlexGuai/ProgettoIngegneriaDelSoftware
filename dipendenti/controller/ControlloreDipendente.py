@@ -3,6 +3,9 @@ class ControlloreDipendente:
     def __init__(self, dipendente):
         self.model = dipendente
 
+    def get_id_dipendente(self):
+        return self.model.id
+
     def get_nome_dipendente(self):
         return self.model.nome
 
