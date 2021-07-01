@@ -3,7 +3,6 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QLabel, QSizePoli
 from abbonamento.views.VistaAbbonamento import VistaAbbonamento
 from cliente.controllore.ControlloreCliente import ControlloreCliente
 
-
 class VistaCliente(QWidget):
     def __init__(self, cliente, rimuovi_cliente, elimina_callback, parent=None):
         super(VistaCliente, self).__init__()
