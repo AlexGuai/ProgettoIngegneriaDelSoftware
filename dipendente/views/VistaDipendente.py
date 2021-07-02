@@ -1,6 +1,6 @@
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QSpacerItem, QSizePolicy, QPushButton
 
-from dipendenti.controller.ControlloreDipendente import ControlloreDipendente
+from dipendente.controllore.ControlloreDipendente import ControlloreDipendente
 
 
 class VistaDipendente(QWidget):
@@ -23,8 +23,8 @@ class VistaDipendente(QWidget):
 
         v_layout.addWidget(self.get_info("Nome: {}".format(self.controller.get_nome_dipendente())))
         v_layout.addWidget(self.get_info("Cognome: {}".format(self.controller.get_cognome_dipendente())))
-        v_layout.addWidget(self.get_info("Data Nascita: {}".format(self.controller.get_datanascita_dipendente())))
-        v_layout.addWidget(self.get_info("Luogo Nascita: {}".format(self.controller.get_luogonascita_dipendente())))
+        v_layout.addWidget(self.get_info("Data Di Nascita: {}".format(self.controller.get_datanascita_dipendente())))
+        v_layout.addWidget(self.get_info("Luogo Di Nascita: {}".format(self.controller.get_luogonascita_dipendente())))
         v_layout.addWidget(self.get_info("Email: {}".format(self.controller.get_email_dipendente())))
         v_layout.addWidget(self.get_info("Telefono: {}".format(self.controller.get_telefono_dipendente())))
         v_layout.addWidget(self.get_info("Licenza: {}".format(self.controller.get_licenza_dipendente())))
