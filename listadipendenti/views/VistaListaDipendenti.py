@@ -36,7 +36,7 @@ class VistaListaDipendenti(QWidget):
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
         cliente_selezionato = self.controller.get_dipendente_by_index(selected)
-        self.vista_dipendente = VistaDipendente(cliente_selezionato, self.controller.rimuovi_dipendente(),
+        self.vista_dipendente = VistaDipendente(cliente_selezionato, self.controller.rimuovi_dipendente,
                                                 self.controller.elimina_callback)
         self.vista_dipendente.show()
 
