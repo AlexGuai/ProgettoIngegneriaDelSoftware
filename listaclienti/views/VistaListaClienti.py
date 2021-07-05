@@ -24,7 +24,7 @@ class VistaListaClienti(QWidget):
         buttons_layout.addWidget(open_button)
 
         new_button = QPushButton("Nuovo")
-        new_button.clicked.connect(self.show_new_client)
+        new_button.clicked.connect(self.show_new_cliente)
         buttons_layout.addWidget(new_button)
         buttons_layout.addStretch()
         h_layout.addLayout(buttons_layout)
@@ -36,10 +36,10 @@ class VistaListaClienti(QWidget):
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
         cliente_selezionato = self.controller.get_cliente_by_index(selected)
-        self.vista_cliente = VistaCliente(cliente_selezionato, self.controller.rimuovi_cliente, self.controller.elimina_callback)
+        self.vista_cliente = VistaCliente(cliente_selezionato, self.controller.rimuovi_cliente, self.update_ui)
         self.vista_cliente.show()
 
-    def show_new_client(self):
+    def show_new_cliente(self):
         self.vista_inserisci_cliente = VistaInserisciCliente(self.controller, self.update_ui)
         self.vista_inserisci_cliente.show()
 

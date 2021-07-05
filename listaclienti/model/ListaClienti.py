@@ -7,11 +7,11 @@ class ListaClienti():
         self.lista_clienti.append(cliente)
 
     def rimuovi_cliente(self, nome):
-        for cliente in self.lista_clienti:
+        def is_selected_cliente(cliente):
             if cliente.nome == nome:
-                self.lista_clienti.remove(cliente)
                 return True
-        return False
+            return False
+        self.lista_clienti.remove(list(filter(is_selected_cliente, self.lista_clienti))[0])
 
     def get_cliente_by_index(self, index):
         return self.lista_clienti[index]

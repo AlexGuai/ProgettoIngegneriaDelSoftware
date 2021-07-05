@@ -48,15 +48,15 @@ class VistaInserisciDipendente(QWidget):
         self.setWindowTitle('Nuovo Dipendente')
 
     def add_dipendente(self):
-        #id = self.text_id.text()
+        # id = self.text_id.text()
         nome = self.text_nome.text()
         cognome = self.text_cognome.text()
         datadinascita = self.text_datadinascita.text()
-        luogodinascita = self.text_luogodinascita()
+        luogodinascita = self.text_luogodinascita.text()
         email = self.text_email.text()
         telefono = self.text_telefono.text()
-        licenza = self.text_licenza()
-        if(nome == ""
+        licenza = self.text_licenza.text()
+        if (nome == ""
                 or cognome == ""
                 or datadinascita == ""
                 or luogodinascita == ""
@@ -69,13 +69,13 @@ class VistaInserisciDipendente(QWidget):
                                  QMessageBox.Ok,
                                  QMessageBox.Ok)
         else:
-            self.controller.aggiungi_dipendente(Dipendente((nome+cognome).lower(),
-                                                     nome,
-                                                     cognome,
-                                                     datadinascita,
-                                                     luogodinascita,
-                                                     email,
-                                                     telefono,
-                                                     licenza))
+            self.controller.aggiungi_dipendente(Dipendente((nome + cognome).lower(),
+                                                           nome,
+                                                           cognome,
+                                                           datadinascita,
+                                                           luogodinascita,
+                                                           email,
+                                                           telefono
+                                                           ))
             self.callback()
             self.close()

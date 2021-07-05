@@ -4,9 +4,9 @@ import pickle
 from listadipendenti.model.ListaDipendenti import ListaDipendenti
 
 
-class ControllerListaDipendenti():
+class ControlloreListaDipendenti():
     def __init__(self):
-        super(ControllerListaDipendenti, self).__init__()
+        super(ControlloreListaDipendenti, self).__init__()
         self.elimina_callback = None
         self.model = ListaDipendenti()
         if os.path.isfile('listadipendenti/data/lista_dipendenti_salvata.pickle'):
