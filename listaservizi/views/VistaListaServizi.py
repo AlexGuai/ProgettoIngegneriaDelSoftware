@@ -19,7 +19,7 @@ class VistaListaServizi(QWidget):
             item.setText(servizio.nome)
             item.setEditable(False)
             font = item.font()
-            font.setPointSize(18)
+            font.setPointSize(15)
             item.setFont(font)
             self.listview_model.appendRow(item)
         self.list_view.setModel(self.listview_model)
@@ -33,7 +33,7 @@ class VistaListaServizi(QWidget):
         h_layout.addLayout(buttons_layout)
 
         self.setLayout(h_layout)
-        self.resize(600, 300)
+        self.resize(400, 300)
         self.setWindowTitle("Lista Servizi")
 
     def closeEvent(self, event):
