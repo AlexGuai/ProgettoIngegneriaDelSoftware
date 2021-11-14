@@ -4,7 +4,7 @@ import os.path
 from listaclienti.model.ListaClienti import ListaClienti
 
 
-class ControlloreListaClienti():
+class ControlloreListaClienti:
     def __init__(self):
         super(ControlloreListaClienti, self).__init__()
         self.elimina_callback = None

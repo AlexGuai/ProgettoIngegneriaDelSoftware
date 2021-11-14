@@ -1,15 +1,16 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton
 
-from listaprenotazioni.controllore.ControlloreListaPrenotazioni import ControlloreListaPrenotazioni
-from listaprenotazioni.views.VistaInserisciPrenotazione import VistaInserisciPrenotazione
+import prenotazione.views.VistaPrenotazione
+from listaperprenotazioni.controllore.ControlloreListaPerPrenotazioni import ControlloreListaPerPrenotazioni
+from listaperprenotazioni.views.VistaInserisciPrenotazione import VistaInserisciPrenotazione
 
 
-class VistaListaPrenotazioni(QWidget):
+class VistaListaPrenotazione(QWidget):
     def __init__(self, parent=None):
-        super(VistaListaPrenotazioni, self).__init__(parent)
+        super(VistaListaPrenotazione, self).__init__(parent)
 
-        self.controller = ControlloreListaPrenotazioni()
+        self.controller = ControlloreListaPerPrenotazioni()
 
         h_layout = QHBoxLayout()
 
@@ -23,20 +24,20 @@ class VistaListaPrenotazioni(QWidget):
         buttons_layout.addWidget(open_button)
 
         new_button = QPushButton("Nuovo")
-        new_button.clicked.connect(self.show_new_prenotazione)
+        new_button.clicked.connect(self.show_new_prenotazioni)
         buttons_layout.addWidget(new_button)
         buttons_layout.addStretch()
         h_layout.addLayout(buttons_layout)
 
         self.setLayout(h_layout)
         self.resize(600, 300)
-        self.setWindowTitle('Lista Prenotazioni')
+        self.setWindowTitle('Lista Prenotazione')
 
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
-        prenotazione_selezionata = self.controller.get_prenotazione_by_index(selected)
-        self.vista_prenotazione = VistaPrenotazione(prenotazione_selezionata, self.controller.rimuovi_prenotazione,
-                                                self.update_ui)
+        cliente_selezionato = self.controller.get_dipendente_by_index(selected)
+        self.vista_prenotazione= prenotazione.views.VistaPrenotazione.VistaPrenotazione(cliente_selezionato, self.controller.rimuovi_prenotazione(),
+                                                                                        self.update_ui)
         self.vista_prenotazione.show()
 
     def show_new_prenotazione(self):
@@ -45,9 +46,10 @@ class VistaListaPrenotazioni(QWidget):
 
     def update_ui(self):
         self.listview_model = QStandardItemModel(self.list_view)
-        for prenotazione in self.controller.get_lista_prenotazioni():
+        for presentazione in self.controller.get_lista_dipendenti():
             item = QStandardItem()
-            item.setText(prenotazione.cliente.nome + " " + prenotazione.cliente.cognome)
+            assert isinstance(presentazione.id)
+            item.setText(presentazione.id)
             item.setEditable(False)
             font = item.font()
             font.setPointSize(18)

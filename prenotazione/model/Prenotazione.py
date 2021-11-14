@@ -1,6 +1,7 @@
 class Prenotazione():
-    def __init__(self, id, cliente, servizio, data):
+    def __init__(self, id, ora, corso):
+        super(Dipendente, self).__init__()
+
         self.id = id
-        self.cliente = cliente
-        self.servizio = servizio
-        self.data = data
+        self.ora = ora
+        self.corso = corso
