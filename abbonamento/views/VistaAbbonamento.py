@@ -17,7 +17,7 @@ class VistaAbbonamento(QWidget):
             v_layout.addWidget(QLabel(self.controller.get_scadenza_string()))
         else:
             v_layout.addWidget(QLabel("Cliente non abbonato"))
-            v_layout.addWidget(QLabel("Aggiungi una nuova data di scadenza dell'abbonamento(dd/mm/yyyy"))
+            v_layout.addWidget(QLabel("Aggiungi una nuova data di scadenza dell'abbonamento(dd/mm/yyyy)"))
             self.text_scadenza = QLineEdit()
             v_layout.addWidget(self.text_scadenza)
             btn_inserisci = QPushButton("Aggiungi")
