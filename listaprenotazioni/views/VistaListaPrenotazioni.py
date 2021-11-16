@@ -3,6 +3,7 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushB
 
 from listaprenotazioni.controllore.ControlloreListaPrenotazioni import ControlloreListaPrenotazioni
 from listaprenotazioni.views.VistaInserisciPrenotazione import VistaInserisciPrenotazione
+from prenotazione.views.VistaPrenotazione import VistaPrenotazione
 
 
 class VistaListaPrenotazioni(QWidget):
@@ -40,8 +41,8 @@ class VistaListaPrenotazioni(QWidget):
         self.vista_prenotazione.show()
 
     def show_new_prenotazione(self):
-        self.vista_inserisci_prenotazione = VistaInserisciPrenotazione(self.controller, self.update_ui)
-        self.vista_inserisci_prenotazione.show()
+        self.vista_inserisci_cliente = VistaInserisciPrenotazione(self.controller, self.update_ui)
+        self.vista_inserisci_cliente.show()
 
     def update_ui(self):
         self.listview_model = QStandardItemModel(self.list_view)
