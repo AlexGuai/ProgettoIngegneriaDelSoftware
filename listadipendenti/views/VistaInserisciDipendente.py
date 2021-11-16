@@ -69,13 +69,13 @@ class VistaInserisciDipendente(QWidget):
                                  QMessageBox.Ok,
                                  QMessageBox.Ok)
         else:
-            self.controller.aggiungi_dipendente(Dipendente((nome + cognome).lower(),
-                                                           nome,
+            self.controller.aggiungi_dipendente(Dipendente(nome,
                                                            cognome,
                                                            datadinascita,
                                                            luogodinascita,
                                                            email,
-                                                           telefono
+                                                           telefono,
+                                                           licenza
                                                            ))
             self.callback()
             self.close()

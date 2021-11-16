@@ -7,7 +7,6 @@ from listaclienti.model.ListaClienti import ListaClienti
 class ControlloreListaClienti():
     def __init__(self):
         super(ControlloreListaClienti, self).__init__()
-        self.elimina_callback = None
         self.model = ListaClienti()
         if os.path.isfile('listaclienti/data/lista_clienti_salvata.pickle'):
             print("esiste")
