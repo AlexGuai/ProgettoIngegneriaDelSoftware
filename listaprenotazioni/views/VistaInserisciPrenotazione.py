@@ -7,9 +7,10 @@ from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QSizePolicy
 
 from prenotazione.model.Prenotazione import Prenotazione
 
+
 class VistaInserisciPrenotazione(QWidget):
     def __init__(self, controller, callback):
-        super(VistaInserisciPrenotazione, self).__init__()
+        super(VistaInserisciPrenotazione, self).__init__(parent=None)
         self.controller = controller
         self.callback = callback
 
@@ -23,7 +24,7 @@ class VistaInserisciPrenotazione(QWidget):
         if os.path.isfile('listaclienti/data/lista_clienti_salvata.pickle'):
             with open('listaclienti/data/lista_clienti_salvata.pickle', 'rb') as f:
                 self.lista_clienti_salvata = pickle.load(f)
-            self.lista_clienti_abbonati = [c for c in self.lista_clienti_salvata.get_lista_clienti() if c.get_abbonamento() and not c.get_abbonamento().is_scaduto()]
+            self.lista_clienti_abbonati = [c for c in self.lista_clienti_salvata if c.get_abbonamento() and not c.get_abbonamento().is_scaduto()]
             for cliente in self.lista_clienti_abbonati:
                 item = QStandardItem()
                 item.setText(cliente.nome + " " + cliente.cognome)
