@@ -40,9 +40,9 @@ class VistaInserisciPrenotazione(QWidget):
         self.combo_servizi = QComboBox()
         self.comboservizi_model = QStandardItemModel(self.combo_servizi)
         if os.path.isfile('listaservizi/data/lista_servizi_salvata.pickle'):
-            with open('listaservizi/data/lista_servizi_salvata.pickle', 'rb') as f:
-                self.lista_servizi_salvata = pickle.load(f)
-            self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata.get_lista_servizi() if s.is_disponibile()]
+            with open('listaservizi/data/lista_servizi_salvata.pickle', 'rb') as t:
+                self.lista_servizi_salvata = pickle.load(t)
+            self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata if s.is_disponibile()]
             for servizio in self.lista_servizi_disponibili:
                 item = QStandardItem()
                 item.setText(servizio.nome)
@@ -51,7 +51,7 @@ class VistaInserisciPrenotazione(QWidget):
                 font.setPointSize(18)
                 item.setFont(font)
                 self.comboservizi_model.appendRow(item)
-            self.combo_servizi.setModel(self.comboclienti_model)
+            self.combo_servizi.setModel(self.comboservizi_model)
         v_layout.addWidget(QLabel("Servizio"))
         v_layout.addWidget(self.combo_servizi)
 
@@ -76,7 +76,7 @@ class VistaInserisciPrenotazione(QWidget):
         else:
             self.controller.aggiungi_prenotazione(Prenotazione((cliente.cognome+cliente.nome), cliente, servizio, data))
             servizio.prenota()
-            with open('listaclienti/data/lista_clienti_salvata.pickle', 'wb') as f:
-                pickle.dump(self.lista_servizi_salvata, f, pickle.HIGHEST_PROTOCOL)
+            with open('listaservizi/data/lista_servizi_salvata.pickle', 'wb') as handle:
+                pickle.dump(self.lista_servizi_salvata, handle, pickle.HIGHEST_PROTOCOL)
             self.callback()
             self.close()
