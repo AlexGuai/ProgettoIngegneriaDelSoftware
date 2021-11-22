@@ -1,7 +1,7 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton
 
-from listaservizi.controllore.ControlloreListaServizio import ControlloreListaServizi
+from listaservizi.controllore.ControlloreListaServizi import ControlloreListaServizi
 from servizio.views.VistaServizio import VistaServizio
 
 
