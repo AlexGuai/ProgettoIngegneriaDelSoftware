@@ -42,7 +42,7 @@ class VistaInserisciPrenotazione(QWidget):
         if os.path.isfile('listaservizi/data/lista_servizi_salvata.pickle'):
             with open('listaservizi/data/lista_servizi_salvata.pickle', 'rb') as f:
                 self.lista_servizi_salvata = pickle.load(f)
-            self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata if s.is_disponibile()]
+            self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata.get_lista_servizi() if s.is_disponibile()]
             for servizio in self.lista_servizi_disponibili:
                 item = QStandardItem()
                 item.setText(servizio.nome)
