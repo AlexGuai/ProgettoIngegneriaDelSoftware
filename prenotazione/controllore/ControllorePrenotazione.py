@@ -5,7 +5,7 @@ class ControllorePrenotazione():
     def __init__(self, prenotazione):
         self.model = prenotazione
 
-    def get_id_prnotazione(self):
+    def get_id_prenotazione(self):
         return self.model.id
 
     def get_cliente_prenotazione(self):

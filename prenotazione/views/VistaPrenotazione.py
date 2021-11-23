@@ -40,7 +40,7 @@ class VistaPrenotazione(QWidget):
 
         self.setLayout(v_layout)
 
-    def disdici_prenotazone_click(self):
-        self.disdici_prenotazione(self.controller.get_id_prnotazione())
+    def disdici_prenotazione_click(self):
+        self.disdici_prenotazione(self.controller.get_id_prenotazione())
         self.elimina_callback()
         self.close()

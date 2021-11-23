@@ -36,7 +36,7 @@ class VistaListaPrenotazioni(QWidget):
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
         prenotazione_selezionata = self.controller.get_prenotazione_by_index(selected)
-        self.vista_prenotazione = VistaPrenotazione(prenotazione_selezionata, self.controller.rimuovi_prenotazione,
+        self.vista_prenotazione = VistaPrenotazione(prenotazione_selezionata, self.controller.elimina_prenotazione_by_id,
                                                 self.update_ui)
         self.vista_prenotazione.show()
 
