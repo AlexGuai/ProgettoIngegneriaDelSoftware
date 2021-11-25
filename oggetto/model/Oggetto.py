@@ -1,5 +1,5 @@
 class Oggetto():
-    def __init__(self, orologio, telefono, ciabatte):
+    def __init__(self, orologio, telefono, ciabatte) -> object:
         super(Oggetto, self).__init__()
         self.orologio = orologio
         self.telefono = telefono
