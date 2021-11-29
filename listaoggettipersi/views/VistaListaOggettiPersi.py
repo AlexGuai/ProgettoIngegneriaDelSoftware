@@ -8,7 +8,7 @@ import self
 
 class VistaListaOggettiPersi(QWidget):
     def __init__(self, parent=None):
-        super(VistaListaOggettiPersi self).__init__(parent)
+        super(VistaListaOggettiPersi, self).__init__(parent)
 
         self.controller = ControlloreListaOggettiPersi()
 
@@ -35,8 +35,8 @@ class VistaListaOggettiPersi(QWidget):
 
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
-       oggeto_selezionato = self.controller.get_oggetto_by_index(selected)
-        self.vista_oggetto = VistaOggetto(vista_selezionato, self.controller.rimuovi_oggettoritrovato, self.update_ui)
+        oggeto_selezionato = self.controller.get_oggetto_by_index(selected)
+        self.vista_oggetto = VistaOggetto(oggeto_selezionato, self.controller.rimuovi_oggettoritrovato, self.update_ui)
         self.vista_cliente.show()
 
     def show_new_oggetto(self):
