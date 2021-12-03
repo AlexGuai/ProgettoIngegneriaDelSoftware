@@ -7,7 +7,7 @@ from listaoggettipersi.model.ListaOggettiPersi import ListaOggettiPersi
 class ControlloreListaOggettiPersi():
     def __init__(self):
         super(ControlloreListaOggettiPersi, self).__init__()
-        self.model = ListaClienti()
+        self.model = ListaOggettiPersi()
         if os.path.isfile('listaoggettipersi/data/lista_clienti_salvata.pickle'):
             print("esiste")
             with open('listaclienti/data/lista_oggettipersi_salvata.pickle', 'rb') as f:

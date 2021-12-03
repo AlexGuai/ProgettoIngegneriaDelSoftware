@@ -4,7 +4,7 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushB
 from oggetto.view.VistaOggetto import VistaOggetto
 from listaoggettipersi.controllore.ControlloreListaOggettiPersi import ControlloreListaOggettiPersi
 from listaclienti.views.VistaInserisciCliente import VistaInserisciCliente
-import self
+
 
 class VistaListaOggettiPersi(QWidget):
     def __init__(self, parent=None):

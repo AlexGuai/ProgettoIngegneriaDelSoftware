@@ -1,5 +1,3 @@
-import self as self
-
 
 class ListaOggettiPersi():
     def __init__(self):

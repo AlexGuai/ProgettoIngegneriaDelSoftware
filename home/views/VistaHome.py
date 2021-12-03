@@ -49,3 +49,4 @@ class VistaHome(QWidget):
 
     def go_lista_oggetti_smarriti(self):
         self.vista_oggetti_persi = VistaListaOggettiPersi()
+        self.vista_oggetti_persi.show()
