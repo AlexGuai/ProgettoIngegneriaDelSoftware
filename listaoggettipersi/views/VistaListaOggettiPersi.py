@@ -3,8 +3,7 @@ from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushB
 
 from oggetto.view.VistaOggetto import VistaOggetto
 from listaoggettipersi.controllore.ControlloreListaOggettiPersi import ControlloreListaOggettiPersi
-from listaclienti.views.VistaInserisciCliente import VistaInserisciCliente
-
+from listaoggettipersi.views.VistaInserisciOggetto import VistaInserisciOggetto
 
 class VistaListaOggettiPersi(QWidget):
     def __init__(self, parent=None):
@@ -36,14 +35,24 @@ class VistaListaOggettiPersi(QWidget):
     def show_selected_info(self):
         selected = self.list_view.selectedIndexes()[0].row()
         oggeto_selezionato = self.controller.get_oggetto_by_index(selected)
-        self.vista_oggetto = VistaOggetto(oggeto_selezionato, self.controller.rimuovi_oggettoritrovato, self.update_ui)
-        self.vista_cliente.show()
+        self.vista_oggetto = VistaOggetto(oggeto_selezionato, self.controller.rimuovi_oggetto, self.update_ui)
+        self.vista_oggetto.show()
 
     def show_new_oggetto(self):
-        self.vista_inserisci_oggetto= VistaInserisciCliente (self.controller, self.update_ui)
+        self.vista_inserisci_oggetto= VistaInserisciOggetto(self.controller, self.update_ui)
         self.vista_inserisci_oggetto.show()
 
-
+    def update_ui(self):
+        self.listview_model = QStandardItemModel(self.list_view)
+        for oggetto in self.controller.get_lista_degli_oggetti_persi():
+            item = QStandardItem()
+            item.setText(oggetto.nome)
+            item.setEditable(False)
+            font = item.font()
+            font.setPointSize(18)
+            item.setFont(font)
+            self.listview_model.appendRow(item)
+        self.list_view.setModel(self.listview_model)
 
     def closeEvent(self, event):
         self.controller.save_data()

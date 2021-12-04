@@ -1,8 +1,9 @@
 class Oggetto():
-    def __init__(self, orologio, telefono, ciabatte) -> object:
+    def __init__(self, tipo, nome, descrizione, dataRitrovamento) -> object:
         super(Oggetto, self).__init__()
-        self.orologio = orologio
-        self.telefono = telefono
-        self.ciabatte = ciabatte
+        self.tipo = tipo
+        self.nome = nome
+        self.descrizione = descrizione
+        self.dataRitrovamento = dataRitrovamento
 
 

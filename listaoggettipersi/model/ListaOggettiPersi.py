@@ -7,15 +7,15 @@ class ListaOggettiPersi():
     def aggiungi_oggetto_perso(self, oggetto):
         self.lista_oggetti_persi.append(oggetto)
 
-    def rimuovi_oggetto_ritrovato(self, nome):
+    def rimuovi_oggetto(self, nome):
         def is_selected_oggetto_ritrovato(oggetto):
             if oggetto.nome == nome:
                 return True
             return False
         self.lista_oggetti_persi.remove(list(filter(is_selected_oggetto_ritrovato, self.lista_oggetti_persi))[0])
 
-    def get_oggetti_by_index(self, index):
+    def get_oggetto_by_index(self, index):
         return self.lista_oggetti_persi[index]
 
-    def get_lista_oggettipersi(self):
+    def get_lista_oggetti_persi(self):
         return self.lista_oggetti_persi

@@ -2,14 +2,17 @@ class ControlloreOggetto():
     def __init__(self, oggetto):
         self.model = oggetto
 
-    def get_orologio_oggetto(self):
-        return self.model.orologio
+    def get_tipo_oggetto(self):
+        return self.model.tipo
 
-    def get_telefono_oggetto(self):
-        return self.model.telefono
+    def get_nome_oggetto(self):
+        return self.model.nome
 
-    def get_ciabatte_oggetto(self):
-        return self.model.ciabatte
+    def get_descrizione_oggetto(self):
+        return self.model.descrizione
+
+    def get_data_ritrovamento_oggetto(self):
+        return self.model.dataRitrovamento
 
 
 
