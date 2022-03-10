@@ -1,11 +1,12 @@
+from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtWidgets import QApplication, QMainWindow, QWidget
+from home.views.VistaHome import Ui_Home
 import sys
 
-from PyQt5.QtWidgets import QApplication
-
-from home.views.VistaHome import VistaHome
-
-if __name__ == '__main__':
-    app = QApplication(sys.argv)
-    vista_home = VistaHome()
-    vista_home.show()
-    sys.exit(app.exec())
+if __name__ == "__main__":
+    app = QtWidgets.QApplication(sys.argv)
+    ex = Ui_Home()
+    w = QtWidgets.QMainWindow()
+    ex.setupUi(w)
+    w.show()
+    sys.exit(app.exec_())
