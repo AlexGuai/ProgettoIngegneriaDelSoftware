@@ -41,10 +41,6 @@ class Ui_Home(object):
 
         self.retranslateUi(Home)
         self.pushButton.clicked.connect(self.go_lista_clienti)
-        self.pushButton_2.clicked.connect(self.go_lista_prenotazioni)
-        self.pushButton_3.clicked.connect(self.go_lista_servizi)
-        self.pushButton_4.clicked.connect(self.go_lista_dipendenti)
-        self.pushButton_5.clicked.connect(self.go_lista_oggetti_smarriti)
         QtCore.QMetaObject.connectSlotsByName(Home)
 
     def retranslateUi(self, Home):
