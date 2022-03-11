@@ -1,5 +1,5 @@
-from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy
-
+from PyQt5.QtGui import QPixmap
+from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy, QLabel
 from listaclienti.views.VistaListaClienti import VistaListaClienti
 from listadipendenti.views.VistaListaDipendenti import VistaListaDipendenti
 from listaoggettipersi.views.VistaListaOggettiPersi import VistaListaOggettiPersi
@@ -15,8 +15,17 @@ class Ui_Home(object):
         Home.resize(868, 628)
         Home.setCursor(QtGui.QCursor(QtCore.Qt.ArrowCursor))
         Home.setStyleSheet("")
+
         self.centralwidget = QtWidgets.QWidget(Home)
         self.centralwidget.setObjectName("centralwidget")
+        self.sfondo = QtWidgets.QLabel(self.centralwidget)
+        self.sfondo.setGeometry(QtCore.QRect(0, 0, 868, 628))
+        self.sfondo.setText("")
+        self.sfondo.setPixmap(QtGui.QPixmap("GUI/immaginiprogetto/MicrosoftTeams-image.png"))
+        self.sfondo.setScaledContents(True)
+        self.sfondo.setAlignment(QtCore.Qt.AlignCenter)
+        self.sfondo.setObjectName("sfondo")
+        
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(70, 210, 181, 31))
         self.pushButton.setStyleSheet("font: 75 italic 12pt \"MS Sans Serif\";")
