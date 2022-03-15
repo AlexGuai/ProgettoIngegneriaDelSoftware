@@ -15,19 +15,17 @@ class VistaDipendente(QWidget):
 
         label_nome = QLabel(self.controller.get_nome_dipendente() + " " + self.controller.get_cognome_dipendente())
         font_nome = label_nome.font()
-        font_nome.setPointSize(30)
+        font_nome.setPointSize(25)
         label_nome.setFont(font_nome)
         v_layout.addWidget(label_nome)
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
-        v_layout.addWidget(self.get_info("Nome: {}".format(self.controller.get_nome_dipendente())))
-        v_layout.addWidget(self.get_info("Cognome: {}".format(self.controller.get_cognome_dipendente())))
-        v_layout.addWidget(self.get_info("Data Di Nascita: {}".format(self.controller.get_datanascita_dipendente())))
-        v_layout.addWidget(self.get_info("Luogo Di Nascita: {}".format(self.controller.get_luogonascita_dipendente())))
-        v_layout.addWidget(self.get_info("Email: {}".format(self.controller.get_email_dipendente())))
-        v_layout.addWidget(self.get_info("Telefono: {}".format(self.controller.get_telefono_dipendente())))
-        v_layout.addWidget(self.get_info("Licenza: {}".format(self.controller.get_licenza_dipendente())))
+        v_layout.addWidget(self.get_info("DATA DI NASCITA: {}".format(self.controller.get_datanascita_dipendente())))
+        v_layout.addWidget(self.get_info("LUOGO DI NASCITA: {}".format(self.controller.get_luogonascita_dipendente())))
+        v_layout.addWidget(self.get_info("E-MAIL: {}".format(self.controller.get_email_dipendente())))
+        v_layout.addWidget(self.get_info("TELEFONO: {}".format(self.controller.get_telefono_dipendente())))
+        v_layout.addWidget(self.get_info("LICENZA: {}".format(self.controller.get_licenza_dipendente())))
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
@@ -36,6 +34,7 @@ class VistaDipendente(QWidget):
         v_layout.addWidget(btn_elimina)
 
         self.setLayout(v_layout)
+        self.resize(600, 300)
         self.setWindowTitle(self.controller.get_nome_dipendente())
 
     @staticmethod

@@ -18,6 +18,15 @@ class Ui_Home(object):
 
         self.centralwidget = QtWidgets.QWidget(Home)
         self.centralwidget.setObjectName("centralwidget")
+
+        self.benvenuto = QtWidgets.QLabel(self.centralwidget)
+        self.benvenuto.setGeometry(QtCore.QRect(240, 160, 300, 41))
+        self.benvenuto.setStyleSheet("font: 75 italic 12pt \"MS Sans Serif\";")
+        self.benvenuto.setFrameShape(QtWidgets.QFrame.NoFrame)
+        self.benvenuto.setTextFormat(QtCore.Qt.PlainText)
+        self.benvenuto.setAlignment(QtCore.Qt.AlignCenter)
+        self.benvenuto.setObjectName("benvenuto")
+
         self.sfondo = QtWidgets.QLabel(self.centralwidget)
         self.sfondo.setGeometry(QtCore.QRect(0, 0, 868, 628))
         self.sfondo.setText("")
@@ -25,7 +34,7 @@ class Ui_Home(object):
         self.sfondo.setScaledContents(True)
         self.sfondo.setAlignment(QtCore.Qt.AlignCenter)
         self.sfondo.setObjectName("sfondo")
-        
+
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(70, 210, 181, 31))
         self.pushButton.setStyleSheet("font: 75 italic 12pt \"MS Sans Serif\";")

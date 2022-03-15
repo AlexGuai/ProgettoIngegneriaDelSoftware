@@ -13,19 +13,19 @@ class VistaCliente(QWidget):
         h_layout = QHBoxLayout()
         v_layout = QVBoxLayout()
 
-        label_nome = QLabel(self.controller.get_nome_cliente())
+        label_nome = QLabel(self.controller.get_nome_cliente()+" "+self.controller.get_cognome_cliente())
         font_nome = label_nome.font()
-        font_nome.setPointSize(30)
+        font_nome.setPointSize(25)
         label_nome.setFont(font_nome)
         v_layout.addWidget(label_nome)
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
-        v_layout.addWidget(self.get_label_info("nome", self.controller.get_nome_cliente()))
-        v_layout.addWidget(self.get_label_info("cognome", self.controller.get_cognome_cliente()))
-        v_layout.addWidget(self.get_label_info("datadinascita", self.controller.get_datadinascita_cliente()))
-        v_layout.addWidget(self.get_label_info("email", self.controller.get_email_cliente()))
-        v_layout.addWidget(self.get_label_info("telefono", self.controller.get_telfono_cliente()))
+        #v_layout.addWidget(self.get_label_info("NOME", self.controller.get_nome_cliente()))
+        #v_layout.addWidget(self.get_label_info("COGNOME", self.controller.get_cognome_cliente()))
+        v_layout.addWidget(self.get_label_info("DATA DI NASCITA", self.controller.get_datadinascita_cliente()))
+        v_layout.addWidget(self.get_label_info("E-MAIL", self.controller.get_email_cliente()))
+        v_layout.addWidget(self.get_label_info("TELEFONO", self.controller.get_telfono_cliente()))
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
@@ -40,7 +40,9 @@ class VistaCliente(QWidget):
         v_layout.addWidget(btn_elimina)
 
         self.setLayout(v_layout)
+        self.resize(600, 300)
         self.setWindowTitle(self.controller.get_nome_cliente() + " " + self.controller.get_cognome_cliente())
+
 
     def get_label_info(self, testo, valore):
         current_label = QLabel("{}: {}".format(testo, valore))

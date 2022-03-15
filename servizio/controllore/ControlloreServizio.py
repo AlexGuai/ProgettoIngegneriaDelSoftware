@@ -11,8 +11,3 @@ class ControlloreServizio():
     def get_posizione_servizio(self):
         return self.model.posizione
 
-    def get_servizio_disponibile(self):
-        if self.model.is_disponibile():
-            return "Disponibile"
-        else:
-            return "Non disponibile"

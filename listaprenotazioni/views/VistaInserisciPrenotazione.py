@@ -43,7 +43,7 @@ class VistaInserisciPrenotazione(QWidget):
             with open('listaservizi/data/lista_servizi_salvata.pickle', 'rb') as t:
                 self.lista_servizi_salvata = pickle.load(t)
             self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata if s.is_disponibile()]
-            for servizio in self.lista_servizi_disponibili:
+            for servizio in self.lista_servizi_salvata:
                 item = QStandardItem()
                 item.setText(servizio.nome)
                 item.setEditable(False)
@@ -67,7 +67,7 @@ class VistaInserisciPrenotazione(QWidget):
     def add_prenotazione(self):
         data = self.text_data.text()
         cliente = self.lista_clienti_abbonati[self.combo_clienti.currentIndex()]
-        servizio = self.lista_servizi_disponibili[self.combo_servizi.currentIndex()]
+        servizio = self.lista_servizi_salvata[self.combo_servizi.currentIndex()]
         if data == "" or not cliente or not servizio:
             QMessageBox(self, 'Errore',
                         'Per favore, inserisci tutte le informazioni richieste',

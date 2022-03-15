@@ -33,7 +33,7 @@ class VistaListaServizi(QWidget):
         h_layout.addLayout(buttons_layout)
 
         self.setLayout(h_layout)
-        self.resize(400, 300)
+        self.resize(600, 300)
         self.setWindowTitle("Lista Servizi")
 
     def closeEvent(self, event):

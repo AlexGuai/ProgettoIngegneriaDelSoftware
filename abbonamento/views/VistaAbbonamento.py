@@ -1,6 +1,6 @@
 from datetime import datetime
 
-from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox
+from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QLineEdit, QPushButton, QMessageBox, QSizePolicy, QSpacerItem
 
 from abbonamento.controllore.ControlloreAbbonamento import ControlloreAbbonamento
 from abbonamento.model.Abbonamento import Abbonamento
@@ -14,7 +14,11 @@ class VistaAbbonamento(QWidget):
 
         v_layout = QVBoxLayout()
         if self.controller.is_abbonato():
-            v_layout.addWidget(QLabel(self.controller.get_scadenza_string()))
+            label_data = QLabel(self.controller.get_scadenza_string())
+            font_data = label_data.font()
+            font_data.setPointSize(25)
+            label_data.setFont(font_data)
+            v_layout.addWidget(label_data)
         else:
             v_layout.addWidget(QLabel("Cliente non abbonato"))
             v_layout.addWidget(QLabel("Aggiungi una nuova data di scadenza dell'abbonamento(dd/mm/yyyy)"))
@@ -24,7 +28,11 @@ class VistaAbbonamento(QWidget):
             btn_inserisci.clicked.connect(self.add_abbonamento_click)
             v_layout.addWidget(btn_inserisci)
 
+
+
         self.setLayout(v_layout)
+        self.resize(600, 300)
+        self.setWindowTitle('Abbonamento')
 
     def add_abbonamento_click(self):
         try:

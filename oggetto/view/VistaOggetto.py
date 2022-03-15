@@ -23,10 +23,10 @@ class VistaOggetto(QWidget):
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
-        v_layout.addWidget(self.get_label_info("tipo", self.controller.get_tipo_oggetto()))
-        v_layout.addWidget(self.get_label_info("nome", self.controller.get_nome_oggetto()))
-        v_layout.addWidget(self.get_label_info("descrizione", self.controller.get_descrizione_oggetto()))
-        v_layout.addWidget(self.get_label_info("dataRitrovamento", self.controller.get_data_ritrovamento_oggetto()))
+        v_layout.addWidget(self.get_label_info("TIPO", self.controller.get_tipo_oggetto()))
+        v_layout.addWidget(self.get_label_info("NOME", self.controller.get_nome_oggetto()))
+        v_layout.addWidget(self.get_label_info("DESCRIZIONE", self.controller.get_descrizione_oggetto()))
+        v_layout.addWidget(self.get_label_info("DATA RITROVAMENTO", self.controller.get_data_ritrovamento_oggetto()))
 
         v_layout.addItem(QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding))
 
@@ -35,6 +35,7 @@ class VistaOggetto(QWidget):
         v_layout.addWidget(btn_elimina)
 
         self.setLayout(v_layout)
+        self.resize(600, 300)
         self.setWindowTitle(self.controller.get_tipo_oggetto() + " " + self.controller.get_nome_oggetto())
 
     def get_label_info(self, testo, valore):
