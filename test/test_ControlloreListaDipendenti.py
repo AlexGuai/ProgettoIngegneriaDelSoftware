@@ -33,6 +33,8 @@ class TestControlloreListaDipendenti(TestCase):
         self.lista.rimuovi_dipendente("Marisonia")
         self.assertEmpty(self.lista.get_lista_dipendenti())
 
+
+
     def assertNotEmpty(self, obj):
         self.assertTrue(obj)
 
