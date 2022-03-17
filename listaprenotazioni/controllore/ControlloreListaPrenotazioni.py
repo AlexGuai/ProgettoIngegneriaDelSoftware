@@ -11,7 +11,7 @@ class ControlloreListaPrenotazioni():
     def get_lista_prenotazioni(self):
         return self.model.get_lista_prenotazioni()
 
-    def get_prenotazione_by_index(self, index):
+    def get_prenotazione_by_index(self,index):
         return self.model.get_prenotazione_by_index(index)
 
     def elimina_prenotazione_by_id(self, id):

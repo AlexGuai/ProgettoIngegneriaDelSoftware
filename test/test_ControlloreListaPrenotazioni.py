@@ -9,6 +9,7 @@ class TestControlloreListaPrenotazioni(TestCase):
         self.lista = ListaPrenotazioni()
         self.controller = ControlloreListaPrenotazioni()
 
+
     def test_aggiungi_prenotazione(self):
         self.test_prenotaz = Prenotazione("alessandroguaitini", "Alessandro Guaitini", "Seconda Corsia", "12/12/2022")
         self.lista.aggiungi_prenotazione(self.test_prenotaz)
@@ -26,10 +27,10 @@ class TestControlloreListaPrenotazioni(TestCase):
         self.controller.elimina_prenotazione_by_id(self.test_prenotaz2)
         self.assertEmpty(self.lista.get_lista_prenotazioni())
 
-    def test_get_prenotazione_by_index(self):     # non funziona
-        #self.test_prenotaz3 = Prenotazione("alessandroguaitini", "Alessandro Guaitini", "Seconda Corsia", "12/12/2022")
-        #self.controller.aggiungi_prenotazione(self.test_prenotaz3)
-        self.assertEqual(self.controller.get_prenotazione_by_index())
+    def test_get_prenotazione_bydata(self):  # non funziona
+        self.test_prenotaz3 = Prenotazione("alessandroguaitini", "Alessandro Guaitini", "Seconda Corsia", "12/12/2022")
+        self.controller.aggiungi_prenotazione(self.test_prenotaz3)
+        self.assertNotEmpty(self.controller)
 
     def assertNotEmpty(self, obj):
         self.assertTrue(obj)
