@@ -1,5 +1,5 @@
 class Prenotazione():
-    def __init__(self, id, cliente, servizio, data):
+    def __init__(self,id, cliente, servizio, data):
         super(Prenotazione, self).__init__()
         self.id = id
         self.cliente = cliente
