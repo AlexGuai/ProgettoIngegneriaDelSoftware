@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton, QMessageBox
 
 from dipendente.views.VistaDipendente import VistaDipendente
 from listadipendenti.controllore.ControlloreListaDipendenti import ControlloreListaDipendenti
@@ -34,11 +34,18 @@ class VistaListaDipendenti(QWidget):
         self.setWindowTitle('Lista Dipendenti')
 
     def show_selected_info(self):
-        selected = self.list_view.selectedIndexes()[0].row()
-        cliente_selezionato = self.controller.get_dipendente_by_index(selected)
-        self.vista_dipendente = VistaDipendente(cliente_selezionato, self.controller.rimuovi_dipendente,
+        try:
+            selected = self.list_view.selectedIndexes()[0].row()
+            cliente_selezionato = self.controller.get_dipendente_by_index(selected)
+            self.vista_dipendente = VistaDipendente(cliente_selezionato, self.controller.rimuovi_dipendente,
                                                 self.update_ui)
-        self.vista_dipendente.show()
+            self.vista_dipendente.show()
+        except:
+            QMessageBox.critical(self,
+                                 'Errore',
+                                 'Nessun dipendente selezionato.',
+                                 QMessageBox.Ok,
+                                 QMessageBox.Ok)
 
     def show_new_dipendente(self):
         self.vista_inserisci_dipendente = VistaInserisciDipendente(self.controller, self.update_ui)

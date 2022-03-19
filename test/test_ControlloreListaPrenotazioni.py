@@ -27,9 +27,9 @@ class TestControlloreListaPrenotazioni(TestCase):
         self.assertEmpty(self.lista.get_lista_prenotazioni())
 
     def test_get_prenotazione_by_index(self):     # non funziona
-        #self.test_prenotaz3 = Prenotazione("alessandroguaitini", "Alessandro Guaitini", "Seconda Corsia", "12/12/2022")
-        #self.controller.aggiungi_prenotazione(self.test_prenotaz3)
-        self.assertEqual(self.controller.get_prenotazione_by_index())
+        self.test_prenotaz3 = Prenotazione("alessandroguaitini", "Alessandro Guaitini", "Seconda Corsia", "12/12/2022")
+        self.controller.aggiungi_prenotazione(self.test_prenotaz3)
+        self.assertEqual(self.lista.get_prenotazione_by_index("12/12/2022"))
 
     def assertNotEmpty(self, obj):
         self.assertTrue(obj)

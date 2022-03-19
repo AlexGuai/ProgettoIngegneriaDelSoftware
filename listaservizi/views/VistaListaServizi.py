@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QListView, QVBoxLayout, QPushButton, QMessageBox
 
 from listaservizi.controllore.ControlloreListaServizi import ControlloreListaServizi
 from servizio.views.VistaServizio import VistaServizio
@@ -41,7 +41,14 @@ class VistaListaServizi(QWidget):
         event.accept()
 
     def show_selected_info(self):
-        selected = self.list_view.selectedIndexes()[0].row()
-        servizio_selezionato = self.controller.get_servizio_by_index(selected)
-        self.vista_servizio = VistaServizio(servizio_selezionato)
-        self.vista_servizio.show()
+        try:
+            selected = self.list_view.selectedIndexes()[0].row()
+            servizio_selezionato = self.controller.get_servizio_by_index(selected)
+            self.vista_servizio = VistaServizio(servizio_selezionato)
+            self.vista_servizio.show()
+        except:
+            QMessageBox.critical(self,
+                                 'Errore',
+                                 'Nessun servizio selezionato.',
+                                 QMessageBox.Ok,
+                                 QMessageBox.Ok)

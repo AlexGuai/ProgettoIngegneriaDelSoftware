@@ -1,5 +1,5 @@
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
-from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushButton
+from PyQt5.QtWidgets import QWidget, QHBoxLayout, QVBoxLayout, QListView, QPushButton, QMessageBox
 
 from oggetto.view.VistaOggetto import VistaOggetto
 from listaoggettipersi.controllore.ControlloreListaOggettiPersi import ControlloreListaOggettiPersi
@@ -33,10 +33,17 @@ class VistaListaOggettiPersi(QWidget):
         self.setWindowTitle('Lista oggetti persi')
 
     def show_selected_info(self):
-        selected = self.list_view.selectedIndexes()[0].row()
-        oggeto_selezionato = self.controller.get_oggetto_by_index(selected)
-        self.vista_oggetto = VistaOggetto(oggeto_selezionato, self.controller.rimuovi_oggetto, self.update_ui)
-        self.vista_oggetto.show()
+        try:
+            selected = self.list_view.selectedIndexes()[0].row()
+            oggeto_selezionato = self.controller.get_oggetto_by_index(selected)
+            self.vista_oggetto = VistaOggetto(oggeto_selezionato, self.controller.rimuovi_oggetto, self.update_ui)
+            self.vista_oggetto.show()
+        except:
+            QMessageBox.critical(self,
+                                 'Errore',
+                                 'Nessun oggetto selezionato.',
+                                 QMessageBox.Ok,
+                                 QMessageBox.Ok)
 
     def show_new_oggetto(self):
         self.vista_inserisci_oggetto= VistaInserisciOggetto(self.controller, self.update_ui)
