@@ -1,5 +1,3 @@
-# ProgettoIngegneriaDelSoftware2021
+# ProgettoIngegneriaDelSoftware2022
 
-## cosa funziona:
-funziona tutto manca la tesina
-  
+
