@@ -1,5 +1,3 @@
-import pickle
-
 from PyQt5.QtWidgets import QWidget, QVBoxLayout, QLabel, QSpacerItem, QSizePolicy, QPushButton
 
 from prenotazione.controllore.ControllorePrenotazione import ControllorePrenotazione

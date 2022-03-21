@@ -24,7 +24,7 @@ class VistaInserisciPrenotazione(QWidget):
         if os.path.isfile('listaclienti/data/lista_clienti_salvata.pickle'):
             with open('listaclienti/data/lista_clienti_salvata.pickle', 'rb') as f:
                 self.lista_clienti_salvata = pickle.load(f)
-            self.lista_clienti_abbonati = [c for c in self.lista_clienti_salvata.get_lista_clienti() if c.get_abbonamento() and not c.get_abbonamento().is_scaduto()]
+            self.lista_clienti_abbonati = [c for c in self.lista_clienti_salvata.get_lista_clienti()]
             for cliente in self.lista_clienti_abbonati:
                 item = QStandardItem()
                 item.setText(cliente.nome + " " + cliente.cognome)
@@ -42,7 +42,7 @@ class VistaInserisciPrenotazione(QWidget):
         if os.path.isfile('listaservizi/data/lista_servizi_salvata.pickle'):
             with open('listaservizi/data/lista_servizi_salvata.pickle', 'rb') as t:
                 self.lista_servizi_salvata = pickle.load(t)
-            self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata if s.is_disponibile()]
+            self.lista_servizi_disponibili = [s for s in self.lista_servizi_salvata]
             for servizio in self.lista_servizi_salvata:
                 item = QStandardItem()
                 item.setText(servizio.nome)
@@ -68,13 +68,14 @@ class VistaInserisciPrenotazione(QWidget):
         data = self.text_data.text()
         cliente = self.lista_clienti_abbonati[self.combo_clienti.currentIndex()]
         servizio = self.lista_servizi_salvata[self.combo_servizi.currentIndex()]
-        if data == "" or not cliente or not servizio:
-            QMessageBox(self, 'Errore',
-                        'Per favore, inserisci tutte le informazioni richieste',
-                        QMessageBox.Ok,
-                        QMessageBox.Ok)
+        if data == "":
+            QMessageBox.critical(self, 'Errore',
+                                 'Per favore, inserisci tutte le informazioni richieste',
+                                 QMessageBox.Ok,
+                                 QMessageBox.Ok)
         else:
-            self.controller.aggiungi_prenotazione(Prenotazione((cliente.cognome+cliente.nome), cliente, servizio, data))
+            self.controller.aggiungi_prenotazione(
+                Prenotazione((cliente.cognome + cliente.nome), cliente, servizio, data))
             servizio.prenota()
             with open('listaservizi/data/lista_servizi_salvata.pickle', 'wb') as handle:
                 pickle.dump(self.lista_servizi_salvata, handle, pickle.HIGHEST_PROTOCOL)

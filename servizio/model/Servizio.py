@@ -6,10 +6,7 @@ class Servizio():
         self.nome = nome
         self.tipo = tipo
         self.posizione = posizione
-        self.disponibile = True
-
-    def is_disponibile(self):
-        return self.disponibile
+        #self.disponibile = True
 
     def prenota(self):
         self.disponibile = False
