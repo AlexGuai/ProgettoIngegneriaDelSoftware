@@ -2,7 +2,6 @@ from PyQt5.QtGui import QPixmap, QStandardItemModel, QStandardItem
 from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy, QLabel, QMessageBox
 
 from cliente.view.VistaCliente import VistaCliente
-from listaclienti.views.VistaInserisciCliente import VistaInserisciCliente
 from listaclienti.views.VistaListaClienti import VistaListaClienti
 from listaclienti.controllore.ControlloreListaClienti import ControlloreListaClienti
 from listadipendenti.views.VistaListaDipendenti import VistaListaDipendenti
@@ -84,7 +83,7 @@ class Ui_Home(object):
         self.listaClienti = QtWidgets.QListView(self.clienti)
         self.listaClienti.setObjectName("listaClienti")
         self.horizontalLayout.addWidget(self.listaClienti)
-        VistaListaClienti.update_ui_clienti(self)
+        self.update_ui_clienti()
 
         self.splitter = QtWidgets.QSplitter(self.clienti)
         self.splitter.setMinimumSize(QtCore.QSize(231, 0))
@@ -199,7 +198,6 @@ class Ui_Home(object):
         self.retranslateUi(Home)
         self.tabWidget.setCurrentIndex(0)
         self.visualizzaCliente.clicked.connect(self.show_selected_info_clienti)
-        self.inserisciNuovoCliente.clicked.connect(self.show_new_cliente)
         QtCore.QMetaObject.connectSlotsByName(Home)
 
     def retranslateUi(self, Home):
@@ -224,11 +222,24 @@ class Ui_Home(object):
         self.pushButton_2.setText(_translate("Home", "VISUALIZZA DIPENDENTE"))
         self.pushButton_3.setText(_translate("Home", "INSERISCI NUOVO DIPENDENTE"))
 
+
+    def update_ui_clienti(self):
+        self.listview_model = QStandardItemModel(self.listaClienti)
+        for cliente in self.controller.get_lista_dei_clienti():
+            item = QStandardItem()
+            item.setText(cliente.nome+" "+cliente.cognome)
+            item.setEditable(False)
+            font = item.font()
+            font.setPointSize(18)
+            item.setFont(font)
+            self.listview_model.appendRow(item)
+        self.listaClienti.setModel(self.listview_model)
+
     def show_selected_info_clienti(self):
         try:
             selected = self.listaClienti.selectedIndexes()[0].row()
             cliente_selezionato = self.controller.get_cliente_by_index(selected)
-            self.vista_cliente = VistaCliente(cliente_selezionato, self.controller.rimuovi_cliente, VistaListaClienti.update_ui_clienti)
+            self.vista_cliente = VistaCliente(cliente_selezionato, self.controller.rimuovi_cliente, self.update_ui_clienti)
             self.vista_cliente.show()
         except:
             QMessageBox.critical(None,
@@ -236,7 +247,3 @@ class Ui_Home(object):
                                  'Nessun cliente selezionato.',
                                  QMessageBox.Ok,
                                  QMessageBox.Ok)
-
-    def show_new_cliente(self):
-        self.vista_inserisci_cliente = VistaInserisciCliente(self.controller, VistaListaClienti.update_ui_clienti)
-        self.vista_inserisci_cliente.show()
