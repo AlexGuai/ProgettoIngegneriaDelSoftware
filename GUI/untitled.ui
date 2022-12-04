@@ -33,14 +33,13 @@
     <item>
      <widget class="QTabWidget" name="tabWidget">
       <property name="styleSheet">
-       <string notr="true">font: 75 italic 10pt &quot;MS Sans Serif&quot;;
-background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
+       <string notr="true">font: 75 italic 10pt &quot;MS Sans Serif&quot;;</string>
       </property>
       <property name="tabPosition">
        <enum>QTabWidget::West</enum>
       </property>
       <property name="currentIndex">
-       <number>5</number>
+       <number>1</number>
       </property>
       <property name="iconSize">
        <size>
@@ -177,19 +176,6 @@ background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
         <item>
          <layout class="QVBoxLayout" name="verticalLayout_2">
           <item>
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
            <widget class="QPushButton" name="visualizzaCliente">
             <property name="minimumSize">
              <size>
@@ -233,19 +219,6 @@ background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
             </property>
            </widget>
           </item>
-          <item>
-           <spacer name="verticalSpacer_2">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </item>
        </layout>
@@ -266,55 +239,28 @@ background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
         <item>
          <widget class="QListView" name="listaPrenotazioni"/>
         </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_3">
-          <item>
-           <spacer name="verticalSpacer_3">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualizzaPrenotazione">
-            <property name="styleSheet">
-             <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
-            </property>
-            <property name="text">
-             <string>VISUALIZZA PRENOTAZIONE</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="inserisciNuovaPrenotazione">
-            <property name="styleSheet">
-             <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
-            </property>
-            <property name="text">
-             <string>INSERISCI NUOVA PRENOTAZIONE</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_4">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QSplitter" name="splitter_2">
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QPushButton" name="visualizzaPrenotazione">
+           <property name="styleSheet">
+            <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+           </property>
+           <property name="text">
+            <string>VISUALIZZA PRENOTAZIONE</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="inserisciNuovaPrenotazione">
+           <property name="styleSheet">
+            <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+           </property>
+           <property name="text">
+            <string>INSERISCI NUOVA PRENOTAZIONE</string>
+           </property>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -331,67 +277,34 @@ background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
         <item>
          <widget class="QListView" name="listaOggetti"/>
         </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
-          <item>
-           <spacer name="verticalSpacer_5">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="visualizzaOgetto">
-            <property name="minimumSize">
-             <size>
-              <width>231</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
-            </property>
-            <property name="text">
-             <string>VISUALIZZA OGGETTO</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="inserisciNuovoOggetto">
-            <property name="minimumSize">
-             <size>
-              <width>231</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
-            </property>
-            <property name="text">
-             <string>INSERISCI NUOVO OGGETTO</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_6">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QSplitter" name="splitter_3">
+          <property name="minimumSize">
+           <size>
+            <width>231</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QPushButton" name="visualizzaOgetto">
+           <property name="styleSheet">
+            <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+           </property>
+           <property name="text">
+            <string>VISUALIZZA OGGETTO</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="inserisciNuovoOggetto">
+           <property name="styleSheet">
+            <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+           </property>
+           <property name="text">
+            <string>INSERISCI NUOVO OGGETTO</string>
+           </property>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -439,67 +352,34 @@ background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
         <item>
          <widget class="QListView" name="listaDipendenti"/>
         </item>
-        <item>
-         <layout class="QVBoxLayout" name="verticalLayout_5">
-          <item>
-           <spacer name="verticalSpacer_7">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_2">
-            <property name="minimumSize">
-             <size>
-              <width>231</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
-            </property>
-            <property name="text">
-             <string>VISUALIZZA DIPENDENTE</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_3">
-            <property name="minimumSize">
-             <size>
-              <width>231</width>
-              <height>0</height>
-             </size>
-            </property>
-            <property name="styleSheet">
-             <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
-            </property>
-            <property name="text">
-             <string>INSERISCI UOVO DIPENDENTE</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <spacer name="verticalSpacer_8">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>40</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
-         </layout>
+        <item alignment="Qt::AlignVCenter">
+         <widget class="QSplitter" name="splitter_4">
+          <property name="minimumSize">
+           <size>
+            <width>231</width>
+            <height>0</height>
+           </size>
+          </property>
+          <property name="orientation">
+           <enum>Qt::Vertical</enum>
+          </property>
+          <widget class="QPushButton" name="pushButton_2">
+           <property name="styleSheet">
+            <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+           </property>
+           <property name="text">
+            <string>VISUALIZZA DIPENDENTE</string>
+           </property>
+          </widget>
+          <widget class="QPushButton" name="pushButton_3">
+           <property name="styleSheet">
+            <string notr="true">font: 75 italic 8pt &quot;MS Sans Serif&quot;;</string>
+           </property>
+           <property name="text">
+            <string>INSERISCI NUOVO DIPENDENTE</string>
+           </property>
+          </widget>
+         </widget>
         </item>
        </layout>
       </widget>
@@ -509,7 +389,7 @@ background-image: url(:/piscina1/MicrosoftTeams-image.png);</string>
   </widget>
  </widget>
  <resources>
-  <include location="immaginiprogetto/immagini.qrc"/>
+  <include location="../../immaginiprogetto/immagini.qrc"/>
  </resources>
  <connections/>
  <slots>
