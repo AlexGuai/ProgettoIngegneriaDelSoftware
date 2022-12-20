@@ -1,5 +1,8 @@
+import sys
+
 from PyQt5.QtGui import QPixmap
 from PyQt5.QtWidgets import QWidget, QGridLayout, QPushButton, QSizePolicy, QLabel
+
 from listaclienti.views.VistaListaClienti import VistaListaClienti
 from listadipendenti.views.VistaListaDipendenti import VistaListaDipendenti
 from listaoggettipersi.views.VistaListaOggettiPersi import VistaListaOggettiPersi
@@ -59,6 +62,7 @@ class Ui_Home(object):
 
         self.retranslateUi(Home)
         self.pushButton.clicked.connect(self.go_lista_clienti)
+
         self.pushButton_2.clicked.connect(self.go_lista_prenotazioni)
         self.pushButton_3.clicked.connect(self.go_lista_servizi)
         self.pushButton_4.clicked.connect(self.go_lista_dipendenti)
@@ -80,9 +84,10 @@ class Ui_Home(object):
         self.vista_lista_servizi.show()
 
     def go_lista_clienti(self):
+        self.window = QtWidgets.QWidget()
         self.vista_lista_clienti = VistaListaClienti()
-        self.vista_lista_clienti.show()
-
+        self.vista_lista_clienti.setupUi(self.window)
+        self.window.show()
     def go_lista_dipendenti(self):
         self.vista_lista_dipendenti = VistaListaDipendenti()
         self.vista_lista_dipendenti.show()
